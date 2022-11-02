@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
 const useInput = (isValid) => {
+
     const [input, setInput] = useState('');
     const [touched, setTouched] = useState(false);
 
-    const invalidInput = !isValid && touched;
+    const invalidInput = !isValid(input) && touched;
     const inputClass = invalidInput ? 'invalid' : '';
 
     const valueChangeHandler = (event) => {

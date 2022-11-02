@@ -1,14 +1,9 @@
-import React, { useState } from "react";
 import useInput from "./hooks/useInput";
 import './App.css';
 
 const App = () => {
     const regex = /^[a-zA-Z0-9.?/-]{8,24}$/;
-    // const [userName, setUserName] = useState('');
-    // const [nameTouched, setNameTouched] = useState(false);
 
-    // const [password, setPassword] = useState('');
-    // const [passwordTouched, setPasswordTouched] = useState(false);
     const {
         value: userName,
         valid: invalidNameInput,
@@ -30,7 +25,7 @@ const App = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        if(!isValidName || !isValidPass) {
+        if(invalidNameInput || invalidPassInput) {
             return;
         }
         console.log(userName, userPassword);
@@ -97,7 +92,7 @@ const App = () => {
                 </div>
                 <div className="field">
                     <div className="ui checkbox">
-                    <input type="checkbox" tabIndex="0" className="hidden"/>
+                    <input type="checkbox" tabIndex="0" />
                     <label>I agree to the Terms and Conditions</label>
                     </div>
                 </div>
