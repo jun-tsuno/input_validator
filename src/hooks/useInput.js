@@ -4,6 +4,7 @@ const useInput = (isValid) => {
 
     const [input, setInput] = useState('');
     const [touched, setTouched] = useState(false);
+    const [empty, setEmpty] = useState(false);
 
     const invalidInput = !isValid(input) && touched;
     const inputClass = invalidInput ? 'invalid' : '';
@@ -14,6 +15,7 @@ const useInput = (isValid) => {
 
     const onBlur = () => {
         setTouched(true);
+        setEmpty(false);
     }
 
     const reset = () => {
@@ -21,7 +23,20 @@ const useInput = (isValid) => {
         setTouched(false);
     }
 
-    return {value: input, valid: invalidInput, inputClass, valueChangeHandler, onBlur, reset};
+    const emptyClass = empty && !touched ? 'invalid' : '';
+
+    return {
+        value: input,
+        valid: invalidInput,
+        inputClass,
+        isTouched: touched,
+        empty,
+        emptyClass,
+        valueChangeHandler,
+        setEmpty,
+        onBlur,
+        reset,
+    };
 };
 
 export default useInput;

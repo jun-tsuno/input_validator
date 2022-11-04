@@ -1,7 +1,7 @@
 .container {
     width: 50%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .alert {
@@ -15,6 +15,20 @@
 }
 
 .invalid {
-    background: rgba(252, 226, 178, 0.868) !important;
-    border: 2px solid rgba(241, 190, 139, 0.868) !important;
+    background: rgba(248, 206, 206, 0.868) !important;
+    border: 2px solid rgba(246, 189, 189, 0.868) !important;
+}
+
+.des-container {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.des-container ul {
+    padding-left: 0;
+}
+
+.submitted {
+    color: rgb(47, 211, 35);
 }
